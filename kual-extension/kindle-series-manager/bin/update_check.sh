@@ -104,6 +104,22 @@ cat > "$EXT_DIR/menu.json" << EOF
           "if": "\"/tmp/fbink_ss_daemon.pid\" -f !"
         },
         {
+          "name": "Enable FBInk Screensaver on Boot",
+          "priority": 5,
+          "action": "bin/fbink_ss_upstart_toggle.sh",
+          "refresh": true,
+          "exitmenu": false,
+          "if": "\"/mnt/us/ENABLE_FBINK_SS_ON_BOOT\" -f !"
+        },
+        {
+          "name": "Disable FBInk Screensaver on Boot",
+          "priority": 5,
+          "action": "bin/fbink_ss_upstart_toggle.sh",
+          "refresh": true,
+          "exitmenu": false,
+          "if": "\"/mnt/us/ENABLE_FBINK_SS_ON_BOOT\" -f"
+        },
+        {
           "name": "Update to $LATEST (current: $CURRENT)",
           "priority": 10,
           "action": "bin/update_apply.sh $LATEST",
